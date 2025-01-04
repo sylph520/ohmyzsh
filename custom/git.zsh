@@ -28,3 +28,6 @@ alias gitcconf="git -C $HOME/dev_confs"
 alias glch="git rev-parse --short HEAD"
 alias glchc="git rev-parse HEAD"
 alias gsp="git stash push"
+
+alias grls="git remote get-url --all origin"
+alias grset="git remote set-url origin"
