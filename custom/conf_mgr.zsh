@@ -3,11 +3,11 @@ alias szshrc="source ~/.zshrc"
 
 mzsh()
 {
-	rcfile=$HOME/.zsh-configs/$1.zsh
+	rcfile=$ZSH_CUSTOM/$1.zsh
 	vi $rcfile
 }
-alias mzshl='ls $HOME/.zsh-configs'
-alias mzshm="vim $HOME/.zsh-configs/conf_mgr.zsh"
+alias mzshl='ls $ZSH_CUSTOM'
+alias mzshm="vim $ZSH_CUSTOM/conf_mgr.zsh"
 # conf diff and backup
 conf()
 {
