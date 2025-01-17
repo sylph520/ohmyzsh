@@ -33,5 +33,5 @@ mkcd(){mkdir -p "$1" && cd "$1"}
 rmcd(){dir=$PWD && rm -rf * && cd .. && rm -d $dir}
 backcd(){cd .. && cd $1}
 backmkcd(){cd .. && mkdir $1 && cd $1}
-alias rmr="rm -r"
+alias rmr="trash-put"
 

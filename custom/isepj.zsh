@@ -44,3 +44,19 @@ isetbase(){
 	fi
 	python -m selection conf/config_rl_custom1_idxub3.json --train False --raylog False --restore_path ~/project/ise2_ray_results_test/PPO/$1/checkpoint_000$iter/checkpoint-$2 $@
 }
+
+
+vip()
+{
+  nvim ${1}/params.json
+}
+
+dip()
+{
+  nvim -d $1/params.json $2/params.json
+}
+
+dic()
+{
+  nvim -d $1/conf.json $2/conf.json
+}
