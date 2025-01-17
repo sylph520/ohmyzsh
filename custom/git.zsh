@@ -22,6 +22,7 @@ alias gap="git add -p"
 
 alias gdf='git diff '
 alias gdfc='git diff --cached'
+alias gst="git status"
 alias gstu="git status -uno"
 alias gitc='git -C'
 alias gitcconf="git -C $HOME/dev_confs"
