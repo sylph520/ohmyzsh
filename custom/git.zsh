@@ -37,3 +37,5 @@ alias grls="git remote get-url --all origin"
 alias grset="git remote set-url origin"
 
 alias gp="git push"
+alias gl="git pull"
+alias gcm="git commit -m"
