@@ -17,3 +17,10 @@ cenv(){
 	python3 -m venv $HOME/pyenvs/$1
 }
 
+# poetry
+poetryd(){
+  poetry add "$1@*" --dry-run
+}
+poetrylt(){
+  poetry add $1@"<=$2"
+}
