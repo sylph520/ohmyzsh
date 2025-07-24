@@ -25,6 +25,6 @@ alias pc="proxychains"
 alias gdb="gdb -q"
 
 
-alias nvchad='NVIM_APPNAME=nvim-nvchad nvim'
-alias lazynv='NVIM_APPNAME=nvim-lazyvim nvim'
+alias cnv='NVIM_APPNAME=nvim-nvchad nvim'
+alias lnv='NVIM_APPNAME=nvim-lazyvim nvim'
 alias astronv='NVIM_APPNAME=nvim-astro nvim'
