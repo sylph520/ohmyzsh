@@ -13,6 +13,8 @@ lth() {ll -t|head -n 5}
 llth() { ll -t $2|head -n $1}
 lltt() { ll -t $2|tail -n $1}
 
+alias tree2="tree -L 2"
+
 alias cpd="cp -r"
 function cpdate {
 	local src="$1"
