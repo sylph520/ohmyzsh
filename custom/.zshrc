@@ -31,7 +31,7 @@ bindkey '^w' backward-delete-word
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(tmux vi-mode history-substring-search direnv
-# per-directory-history
+per-directory-history
 )
 if [[ -r /etc/os-release ]]; then
 	source /etc/os-release
