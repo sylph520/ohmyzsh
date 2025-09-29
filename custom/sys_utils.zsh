@@ -31,3 +31,8 @@ alias lnv='NVIM_APPNAME=nvim-lazyvim nvim'
 alias astronv='NVIM_APPNAME=nvim-astro nvim'
 
 alias lg='lazygit'
+
+# linux brew
+if [ -d /home/linuxbrew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
