@@ -7,6 +7,7 @@ ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 alias ve='tmux split-window -h vim $@'
 alias tmuxa='tmux a'
+alias tls='tmux ls'
 
 # vim
 alias cdultisnips="cd $HOME/.vim/plugged/vim-snippets/UltiSnips"
@@ -28,3 +29,5 @@ alias gdb="gdb -q"
 alias cnv='NVIM_APPNAME=nvim-nvchad nvim'
 alias lnv='NVIM_APPNAME=nvim-lazyvim nvim'
 alias astronv='NVIM_APPNAME=nvim-astro nvim'
+
+alias lg='lazygit'
