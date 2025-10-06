@@ -1,5 +1,4 @@
 # sys
-alias lt="ll -c"
 alias llt="ll -t"
 alias lsd="ls -d */"
 alias lld="ls -al|grep '^d'"
