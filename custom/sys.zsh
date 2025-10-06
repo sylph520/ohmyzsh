@@ -1,4 +1,5 @@
 # sys
+alias lt="ll -c"
 alias llt="ll -t"
 alias lsd="ls -d */"
 alias lld="ls -al|grep '^d'"
@@ -16,6 +17,7 @@ lltt() { ll -t $2|tail -n $1}
 alias tree2="tree -L 2"
 
 alias cpd="cp -r"
+# alias mv="mv -vn"
 function cpdate {
 	local src="$1"
     local dst="${src}.$(date +%Y%m%d-%H%M%S)"
