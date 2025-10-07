@@ -1,3 +1,5 @@
+export PATH="$HOME/bin/ampl_bin:$PATH"
+
 dlig ()
 {
   if [[ -e ".gitignore" ]]; then

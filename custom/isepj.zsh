@@ -60,3 +60,12 @@ dic()
 {
   nvim -d $1/conf.json $2/conf.json
 }
+
+awkres()
+{
+	awk -F': ' '/Overall Costs/ {print $2}' $1 |paste -sd ','
+}
+
+resloc(){
+	grep -m 1 'checkpoint' $1
+}

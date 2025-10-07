@@ -36,3 +36,11 @@ alias lg='lazygit'
 if [ -d /home/linuxbrew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+# autojump
+. /usr/share/autojump/autojump.sh
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+

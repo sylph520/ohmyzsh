@@ -40,48 +40,8 @@ if [[ -r /etc/os-release ]]; then
 	fi
 fi
 
-
-source $ZSH/oh-my-zsh.sh
-. /usr/share/autojump/autojump.sh
-
-##############################   PATH   ##############################
-########## pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"  # For login shells
-# eval "$(pyenv init -)"  # For interactive shells
-eval "$(pyenv virtualenv-init -)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-##<<< conda initialize <<<
-
 export PATH="$PATH:$HOME/.local/bin"
 
-###### node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source $ZSH/oh-my-zsh.sh
 
-###### rust
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-############################### softwares ##############################
-export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/.pixi/bin:$PATH
-export PATH="/opt/mssql-tools18/bin:$PATH"
-export PATH="$HOME/bin/ampl_bin:$PATH"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 #####################end of the file ####################
