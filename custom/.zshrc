@@ -40,8 +40,6 @@ if [[ -r /etc/os-release ]]; then
 	fi
 fi
 
-export PATH="$PATH:$HOME/.local/bin"
-
 source $ZSH/oh-my-zsh.sh
 
 #####################end of the file ####################

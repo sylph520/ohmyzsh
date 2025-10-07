@@ -1,3 +1,6 @@
+# PATH
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
 # sys
 alias llt="ll -t"
 alias lsd="ls -d */"
