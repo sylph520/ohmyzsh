@@ -1,10 +1,4 @@
 # PATH
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"  # For login shells
-eval "$(pyenv init -)"  # For interactive shells
-eval "$(pyenv virtualenv-init -)"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/bin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

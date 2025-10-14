@@ -40,6 +40,16 @@ if [[ -r /etc/os-release ]]; then
 	fi
 fi
 
+
+# sournce omz
 source $ZSH/oh-my-zsh.sh
+
+# PATH
+## pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"  # For login shells
+eval "$(pyenv init -)"  # For interactive shells
+eval "$(pyenv virtualenv-init -)"
 
 #####################end of the file ####################

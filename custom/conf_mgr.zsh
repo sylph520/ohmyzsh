@@ -1,5 +1,5 @@
 alias cdzshrc="cd ~/.oh-my-zsh/custom"
-alias mzshrc="vim ~/.zshrc"
+alias mzshrc="nvim ~/.oh-my-zsh/.zshrc"
 alias szshrc="source ~/.zshrc"
 
 mzsh()
