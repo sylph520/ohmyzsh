@@ -19,13 +19,6 @@ alias timehist='perl -lne '\''m#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar 
 
 DISABLE_AUTO_TITLE="yes"
 
-# vi style incremental search
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-delete-word
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

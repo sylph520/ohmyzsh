@@ -1,5 +1,10 @@
 # git
 ## git proxy
+if [ -d $HOME/bin/git_bin ]; then
+	export PATH="$HOME/bin/git_bin/bin:$PATH"
+	export GIT_EXEC_PATH=$HOME/bin/git_bin/libexec/git-core
+fi
+
 gcpgh() {
       git clone https://mirror.ghproxy.com/$1
 }
