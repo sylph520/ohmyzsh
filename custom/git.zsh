@@ -44,3 +44,10 @@ alias grset="git remote set-url origin"
 alias gp="git push"
 alias gl="git pull"
 alias gcm="git commit -m"
+
+eval "$(ssh-agent -s)" > /dev/null
+if [ -f ~/.ssh/id_ed25519 ]; then
+        ssh-add ~/.ssh/id_ed25519 2>/dev/null
+elif [ -f ~/.ssh/id_rsa ]; then
+        ssh-add ~/.ssh/id_rsa 2>/dev/null
+fi
