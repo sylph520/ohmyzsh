@@ -20,6 +20,69 @@ alias gitunsetghp="git config --global --unset url."$gitmirror".insteadOf"
 alias gitsetproxy='git config --global http.proxy "socks5://127.0.0.1:1080"; git config --global https.proxy "socks5://127.0.0.1:1080"'
 alias gitunsetproxy='git config --global --unset http.proxy; git config --global --unset https.proxy'
 
+function git_to_ssh {
+  # 1. Get the current HTTPS URL for the 'origin' remote
+  local CURRENT_URL
+  CURRENT_URL=$(git config --get remote.origin.url 2>/dev/null)
+
+  # Check for errors and if already SSH
+  if [[ -z "$CURRENT_URL" ]]; then
+    echo "❌ Error: Could not find 'origin' remote URL. Are you in a Git repository?"
+    return 1
+  fi
+  if [[ "$CURRENT_URL" == git@* ]]; then
+    echo "✅ Remote origin is already using the SSH protocol: $CURRENT_URL"
+    return 0
+  fi
+
+  # 2. Construct the new SSH URL using sed for precise conversion
+  local NEW_URL
+  NEW_URL=$(echo "$CURRENT_URL" | sed -E 's#^https://([^/]+)/(.+)#git@\1:\2#')
+
+  # Fail if conversion did not happen (URL is unchanged)
+  if [[ "$NEW_URL" == "$CURRENT_URL" ]]; then
+      echo "⚠️ Conversion failed. Please verify the URL format is standard HTTPS."
+      echo "   Current URL: $CURRENT_URL"
+      return 1
+  fi
+
+  # --- CONFIRMATION PROMPT ---
+  echo "--- URL Change Confirmation ---"
+  echo "You are about to change the Git Remote 'origin' URL:"
+  echo "  Old URL (HTTPS): **$CURRENT_URL**"
+  echo "  New URL (SSH):   **$NEW_URL**"
+
+  # Ask for confirmation
+  read -r -q "?Do you want to apply this change? (y/N) "
+  echo # Print a newline after the prompt
+
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "✅ Confirmation received. Applying change..."
+  else
+    echo "✋ Change cancelled by user."
+    return 0
+  fi
+
+  # 3. Apply the new URL
+  if git remote set-url origin "$NEW_URL"; then
+    echo "✅ Success! Remote URL has been updated."
+
+    # Optional Verification
+    local VERIFY_URL
+    VERIFY_URL=$(git config --get remote.origin.url)
+
+    if [[ "$VERIFY_URL" == "$NEW_URL" ]]; then
+        echo "✨ Verification: The new 'origin' URL is correct in your config."
+    fi
+
+  else
+    echo "❌ Failed to set new remote URL using 'git remote set-url'."
+    return 1
+  fi
+}
+# --- GLOBAL ALIAS (Still the same) ---
+alias -g g2ssh='git_to_ssh'
+
 
 ## git alias
 alias ga="git add"
