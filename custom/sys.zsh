@@ -18,6 +18,46 @@ lth() {ll -t|head -n 5}
 llth() { ll -t $2|head -n $1}
 lltt() { ll -t $2|tail -n $1}
 
+# --- Core function using standard ls (Recommended fix) ---
+function _get_latest_subfolder {
+  # ls -td1: Sort by time (newest first), list directories, one per line.
+  # The "*/" ensures only directories are listed.
+  local LATEST_FOLDER
+  LATEST_FOLDER=$(ls -td1 -- */ 2>/dev/null | head -n 1 | sed 's:/*$::')
+
+  if [[ -z "$LATEST_FOLDER" ]]; then
+    # Return empty string for the alias substitution if nothing is found
+    echo ""
+    return 1
+  fi
+
+  echo "$LATEST_FOLDER"
+  return 0
+}
+alias -g ltd='$( _get_latest_subfolder )'
+
+# Function to find the latest (most recently modified) FILE
+function _get_latest_file {
+  local LATEST_FILE
+  # Use zsh globbing for files, ensuring no directories are matched
+  # *(N.om[1]): (N) no match error, (.) regular file only, (om[1]) order modified, first one
+  LATEST_FILE=$(echo *(N.om[1]))
+
+  if [[ -z "$LATEST_FILE" ]]; then
+    # Fallback to the safer ls method if the Zsh glob fails (rare, but good practice)
+    LATEST_FILE=$(ls -t1F | grep -v '/' | head -n 1)
+  fi
+
+  if [[ -z "$LATEST_FILE" ]]; then
+    echo ""
+    return 1
+  fi
+
+  echo "$LATEST_FILE"
+  return 0
+}
+alias -g ltf='$( _get_latest_file )'
+
 alias tree2="tree -L 2"
 
 alias pgrepa='pgrep -a'
