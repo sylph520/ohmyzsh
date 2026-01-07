@@ -44,3 +44,4 @@ fi
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
+alias delta='git-delta-snap.delta'

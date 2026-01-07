@@ -69,3 +69,34 @@ awkres()
 resloc(){
 	grep -m 1 'checkpoint' $1
 }
+
+
+excsv() {
+    local logdir="$1"
+    local output_suffix="$2"
+    local downsample=''
+
+    # Parse options
+    while [[ "$#" -gt 2 ]]; do
+        case "$1" in
+            -d|--downsample)
+                downsample="--downsample $2"
+                shift 2
+                ;;
+            *)
+                shift
+                break
+                ;;
+        esac
+    done
+
+    # Set default output filename
+    local output="tmp${output_suffix}.csv"
+
+    # Execute the command
+    python extract_training_metrics.py \
+        --logdir "$logdir" \
+        --output "$output" \
+        $downsample
+}
+
