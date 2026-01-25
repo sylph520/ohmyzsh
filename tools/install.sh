@@ -70,9 +70,9 @@ fi
 ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Default settings
-REPO=${REPO:-ohmyzsh/ohmyzsh}
+REPO=${REPO:-sylph520/ohmyzsh}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
-BRANCH=${BRANCH:-master}
+BRANCH=${BRANCH:-customizations}
 
 # Other options
 CHSH=${CHSH:-yes}
@@ -387,7 +387,7 @@ setup_zshrc() {
   fi
   omz=$(echo "$omz" | sed "s|^$HOME/|\$HOME/|")
 
-  sed "s|^export ZSH=.*$|export ZSH=\"${omz}\"|" "$ZSH/templates/zshrc.zsh-template" > "$zdot/.zshrc-omztemp"
+  sed "s|^export ZSH=.*$|export ZSH=\"${omz}\"|" "$ZSH/templates/customizations.zshrc" > "$zdot/.zshrc-omztemp"
   mv -f "$zdot/.zshrc-omztemp" "$zdot/.zshrc"
 
   echo
