@@ -43,9 +43,11 @@ source $ZSH/oh-my-zsh.sh
 
 ## pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"  # For login shells
-eval "$(pyenv init -)"  # For interactive shells
-eval "$(pyenv virtualenv-init -)"
+if [[ -d $PYENV_ROOT/bin ]]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"  # For login shells
+  eval "$(pyenv init -)"  # For interactive shells
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 #####################end of the file ####################
