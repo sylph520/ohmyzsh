@@ -19,11 +19,10 @@ alias timehist='perl -lne '\''m#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar 
 
 DISABLE_AUTO_TITLE="yes"
 
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(tmux vi-mode history-substring-search direnv
+plugins=(vi-mode history-substring-search direnv
 per-directory-history
 )
 if [[ -r /etc/os-release ]]; then
@@ -38,6 +37,10 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # PATH
+# custom bins
+[[ -d $HOME/.local/bin/ ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d $HOME/bin/ ]] && export PATH="$HOME/bin:$PATH"
+
 ## pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

@@ -1,4 +1,4 @@
-export PATH="$PATH:$HOME/bin/ampl_bin"
+[[ -d $HOME/bin/ampl_bin ]] && export PATH="$PATH:$HOME/bin/ampl_bin"
 
 dlig ()
 {

@@ -52,5 +52,4 @@ condaenv2rc()
 }
 
 # pixi
-export PATH=$HOME/.pixi/bin:$PATH
-
+[[ -d $HOME/.pixi/bin ]] && export PATH=$HOME/.pixi/bin:$PATH

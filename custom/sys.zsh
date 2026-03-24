@@ -1,6 +1,3 @@
-## PATH
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
 ## Display
 
 ## Inspect

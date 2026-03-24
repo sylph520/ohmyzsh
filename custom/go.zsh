@@ -1,1 +1,1 @@
-export PATH=$HOME/go/bin:$PATH
+[[ -d $HOME/go/bin ]] && export PATH=$HOME/go/bin:$PATH
