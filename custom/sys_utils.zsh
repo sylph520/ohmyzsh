@@ -2,11 +2,12 @@
 alias alg='sudo apt list |grep '
 alias alug='sudo apt list -u|grep '
 alias alig='sudo apt list --installed|grep '
-# tmux plug settings
+
+# tmux
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 alias ve='tmux split-window -h vim $@'
-alias tmuxa='tmux a'
+alias ta='tmux a'
 alias tls='tmux ls'
 
 # vim
@@ -20,11 +21,12 @@ alias agp='ag --python'
 
 # fppc
 alias fppc='fpp -c code'
+
 # proxychains
 alias pc="proxychains"
+
 # gdb
 alias gdb="gdb -q"
-
 
 alias cnv='NVIM_APPNAME=nvim-nvchad nvim'
 alias lnv='NVIM_APPNAME=nvim-lazyvim nvim'
@@ -43,5 +45,9 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# load functions
+fpath+=$ZSH/custom/functions
+autoload -Uz logts
 
 alias delta='git-delta-snap.delta'

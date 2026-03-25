@@ -2,6 +2,8 @@ alias cdzshrc="cd ~/.oh-my-zsh/custom"
 alias mzshrc="nvim ~/.oh-my-zsh/custom/.zshrc"
 alias szshrc="source ~/.zshrc"
 
+alias mtmux="nvim ~/.tmux.conf"
+
 mzsh()
 {
 	rcfile=$ZSH_CUSTOM/$1.zsh
