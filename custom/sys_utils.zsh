@@ -40,7 +40,10 @@ if [ -d /home/linuxbrew ]; then
 fi
 
 # autojump
-. /usr/share/autojump/autojump.sh
+if [ -d /usr/share/autojump ]; then
+  . /usr/share/autojump/autojump.sh
+fi
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
