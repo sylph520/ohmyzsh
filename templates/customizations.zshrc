@@ -19,6 +19,25 @@ alias timehist='perl -lne '\''m#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar 
 
 DISABLE_AUTO_TITLE="yes"
 
+# PATH
+# custom bins
+[[ -d $HOME/.local/bin/ ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d $HOME/bin/ ]] && export PATH="$HOME/bin:$PATH"
+
+## direnv
+if [[ -d ~/bin/direnv ]]; then
+    eval "$(direnv hook zsh)"
+fi
+
+## pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"  # For login shells
+  eval "$(pyenv init -)"  # For interactive shells
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -37,17 +56,4 @@ fi
 # sournce omz
 source $ZSH/oh-my-zsh.sh
 
-# PATH
-# custom bins
-[[ -d $HOME/.local/bin/ ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -d $HOME/bin/ ]] && export PATH="$HOME/bin:$PATH"
-
-## pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT/bin ]]; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"  # For login shells
-  eval "$(pyenv init -)"  # For interactive shells
-  eval "$(pyenv virtualenv-init -)"
-fi
 #####################end of the file ####################
