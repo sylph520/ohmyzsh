@@ -1,7 +1,8 @@
+alias cdzshrc="cd ~/.oh-my-zsh"
 alias mzshrc="nvim ~/.zshrc"
 alias szshrc="source ~/.zshrc"
 alias dfzshrc='diff ~/.zshrc ~/.oh-my-zsh/templates/customizations.zshrc'
-alias synczshrc='mv ~/.zshrc ~/.oh-my-zsh/templates/customizations.zshrc'
+alias synczshrc='cp ~/.zshrc ~/.oh-my-zsh/templates/customizations.zshrc'
 
 alias mtmux="nvim ~/.tmux.conf"
 
